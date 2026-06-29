@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BLUELINE LOGISTICS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<script>
+
+function addRow(){
+
+let table =
+document.getElementById("dimensionTable");
+
+let row =
+table.insertRow(-1);
+
+row.innerHTML = `
+
+<td>
+
+<input type="number"
+placeholder="Length">
+
+</td>
+
+<td>
+
+<input type="number"
+placeholder="Width">
+
+</td>
+
+<td>
+
+<input type="number"
+placeholder="Height">
+
+</td>
+
+<td>
+
+<input type="number"
+placeholder="Qty">
+
+</td>
+
+<td>
+
+<button
+type="button"
+onclick="removeRow(this)">
+
+Delete
+
+</button>
+
+</td>
+
+`;
+
+}
+
+function removeRow(btn){
+
+btn.parentNode.parentNode.remove();
+
+}
+
+</script>
+
+<body>
+
+<div class="container">
+
+<h1>BLUELINE LOGISTICS PVT LTD</h1>
+
+<h3>Freight Enquiry Form</h3>
+
+<form>
+
+<input type="text" placeholder="Company Name">
+
+<input type="text" placeholder="Contact Person">
+
+<input type="email" placeholder="Email">
+
+<input type="text" placeholder="Phone">
+
+<input type="text" placeholder="Origin">
+
+<input type="text" placeholder="Destination">
+
+<select>
+
+<option>Import</option>
+
+<option>Export</option>
+
+</select>
+
+<select>
+
+<option>Air Freight</option>
+
+<option>Sea Freight</option>
+
+<option>Road Freight</option>
+
+</select>
+
+<textarea placeholder="Commodity Details"></textarea>
+
+<input type="text" placeholder="Gross Weight (KGS)">
+
+<h4>Cargo Dimensions</h4>
+
+<table id="dimensionTable">
+
+<tr>
+
+<th>L (CM)</th>
+<th>W (CM)</th>
+<th>H (CM)</th>
+<th>Packages</th>
+<th>Action</th>
+
+</tr>
+
+<tr>
+
+<td>
+<input type="number" placeholder="Length">
+</td>
+
+<td>
+<input type="number" placeholder="Width">
+</td>
+
+<td>
+<input type="number" placeholder="Height">
+</td>
+
+<td>
+<input type="number" placeholder="Qty">
+</td>
+
+<td>
+
+<button type="button"
+onclick="removeRow(this)">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+</table>
+
+<button
+type="button"
+onclick="addRow()">
+
++ Add Dimension
+
+</button>
+
+<select>
+
+<option selected>Container Type</option>
+
+<option>LCL (Less than Container Load)</option>
+
+<option>FCL - 1 X 20'</option>
+
+<option>FCL - 1 X 40'</option>
+
+<option>Reefer - 1 X 20'</option>
+
+<option>Reefer - 1 X 40'</option>
+
+<option>Open Top</option>
+
+<option>Break Bulk</option>
+
+<option>Flat Rack</option>
+
+<option>Project Cargo</option>
+
+</select>
+
+<textarea placeholder="Special Instructions / Remarks"></textarea>
+
+<button>
+
+Submit Enquiry
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
