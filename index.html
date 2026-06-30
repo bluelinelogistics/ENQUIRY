@@ -9,14 +9,20 @@ function addRow(){
     let table = document.getElementById("dimensionTable");
     let row = table.insertRow(-1);
 
+    // Modified names to match sheet headers exactly without square brackets
     row.innerHTML = `
-        <td><input type="number" name="Dim_Length[]" placeholder="Length"></td>
-        <td><input type="number" name="Dim_Width[]" placeholder="Width"></td>
-        <td><input type="number" name="Dim_Height[]" placeholder="Height"></td>
-        <td><input type="number" name="Dim_Qty[]" placeholder="Qty"></td>
+        <td><input type="number" name="Dim_Length" placeholder="Length"></td>
+        <td><input type="number" name="Dim_Width" placeholder="Width"></td>
+        <td><input type="number" name="Dim_Height" placeholder="Height"></td>
+        <td><input type="number" name="Dim_Qty" placeholder="Qty"></td>
         <td><button type="button" onclick="removeRow(this)">Delete</button></td>
     `;
 }
+
+function removeRow(btn){
+    btn.parentNode.parentNode.remove();
+}
+</script>
 
 function removeRow(btn){
     btn.parentNode.parentNode.remove();
