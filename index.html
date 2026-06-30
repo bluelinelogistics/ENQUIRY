@@ -9,20 +9,15 @@ function addRow(){
     let table = document.getElementById("dimensionTable");
     let row = table.insertRow(-1);
 
-    // Modified names to match sheet headers exactly without square brackets
+    // Added [] to names so HTML bundles multiple values into an array
     row.innerHTML = `
-        <td><input type="number" name="Dim_Length" placeholder="Length"></td>
-        <td><input type="number" name="Dim_Width" placeholder="Width"></td>
-        <td><input type="number" name="Dim_Height" placeholder="Height"></td>
-        <td><input type="number" name="Dim_Qty" placeholder="Qty"></td>
+        <td><input type="number" name="Dim_Length[]" placeholder="Length"></td>
+        <td><input type="number" name="Dim_Width[]" placeholder="Width"></td>
+        <td><input type="number" name="Dim_Height[]" placeholder="Height"></td>
+        <td><input type="number" name="Dim_Qty[]" placeholder="Qty"></td>
         <td><button type="button" onclick="removeRow(this)">Delete</button></td>
     `;
 }
-
-function removeRow(btn){
-    btn.parentNode.parentNode.remove();
-}
-</script>
 
 function removeRow(btn){
     btn.parentNode.parentNode.remove();
@@ -36,7 +31,7 @@ function removeRow(btn){
     <h1>BLUELINE LOGISTICS PVT LTD</h1>
     <h3>Freight Enquiry Form</h3>
 
-    <form action="https://script.google.com/macros/s/AKfycbwHhPeEyyF-xdR0u2seHXWvEoScaKNLD_16iiSOJTv-cNpqCy6rOSw2-YXUlzbmJ5Rb/exec" method="POST">
+    <form action="https://script.google.com/macros/s/AKfycbxlvG1GUEHd5n3K3L3Em7zfDPPp37HJgUuxOrktYQcFGQdyFQSFuDYJJZY78bjspu4E/exec" method="POST">
         
         <div class="form-row">
             <input type="text" name="Contact_Name" placeholder="Your Name" required>
@@ -94,10 +89,10 @@ function removeRow(btn){
         <th>Action</th>
     </tr>
     <tr>
-        <td><input type="number" name="Dim_Length" placeholder="Length"></td>
-        <td><input type="number" name="Dim_Width" placeholder="Width"></td>
-        <td><input type="number" name="Dim_Height" placeholder="Height"></td>
-        <td><input type="number" name="Dim_Qty" placeholder="Qty"></td>
+        <td><input type="number" name="Dim_Length[]" placeholder="Length"></td>
+        <td><input type="number" name="Dim_Width[]" placeholder="Width"></td>
+        <td><input type="number" name="Dim_Height[]" placeholder="Height"></td>
+        <td><input type="number" name="Dim_Qty[]" placeholder="Qty"></td>
         <td><button type="button" onclick="removeRow(this)">Delete</button></td>
     </tr>
 </table>
