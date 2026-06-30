@@ -1,205 +1,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>BLUELINE LOGISTICS</title>
-<link rel="stylesheet" href="style.css">
+    <title>BLUELINE LOGISTICS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <script>
-
 function addRow(){
+    let table = document.getElementById("dimensionTable");
+    let row = table.insertRow(-1);
 
-let table =
-document.getElementById("dimensionTable");
-
-let row =
-table.insertRow(-1);
-
-row.innerHTML = `
-
-<td>
-
-<input type="number"
-placeholder="Length">
-
-</td>
-
-<td>
-
-<input type="number"
-placeholder="Width">
-
-</td>
-
-<td>
-
-<input type="number"
-placeholder="Height">
-
-</td>
-
-<td>
-
-<input type="number"
-placeholder="Qty">
-
-</td>
-
-<td>
-
-<button
-type="button"
-onclick="removeRow(this)">
-
-Delete
-
-</button>
-
-</td>
-
-`;
-
+    row.innerHTML = `
+        <td><input type="number" name="Dim_Length[]" placeholder="Length"></td>
+        <td><input type="number" name="Dim_Width[]" placeholder="Width"></td>
+        <td><input type="number" name="Dim_Height[]" placeholder="Height"></td>
+        <td><input type="number" name="Dim_Qty[]" placeholder="Qty"></td>
+        <td><button type="button" onclick="removeRow(this)">Delete</button></td>
+    `;
 }
 
 function removeRow(btn){
-
-btn.parentNode.parentNode.remove();
-
+    btn.parentNode.parentNode.remove();
 }
-
 </script>
 
 <body>
 
 <div class="container">
 
-<h1>BLUELINE LOGISTICS PVT LTD</h1>
+    <h1>BLUELINE LOGISTICS PVT LTD</h1>
+    <h3>Freight Enquiry Form</h3>
 
-<h3>Freight Enquiry Form</h3>
+    <!-- REPLACE WITH YOUR ACTUAL GOOGLE APPS SCRIPT WEB APP URL -->
+    <form action="https://script.google.com/macros/s/AKfycby9ofaX7VfnU_WFnt4RbEU7XZi5Ep6CZnMAkypRK5RotY2RLPwYGbNfenmuuzEWWho/exec" method="POST">
+        
+        <!-- Contact Information Row -->
+        <div class="form-row">
+            <input type="text" name="Contact_Name" placeholder="Your Name" required>
+            <input type="email" name="Contact_Email" placeholder="Your Email" required>
+        </div>
 
-<form>
+        <!-- Logistics Routing Row -->
+        <div class="form-row">
+            <input type="text" name="Origin_Port" placeholder="Origin Port" required>
+            <input type="text" name="Destination_Port" placeholder="Destination Port" required>
+        </div>
+        
+        <!-- Logistics Modes Row -->
+        <div class="form-row">
+            <select name="Trade_Type">
+                <option value="" disabled selected>Select Trade Type</option>
+                <option value="Import">Import</option>
+                <option value="Export">Export</option>
+            </select>
 
-<input type="text" placeholder="Company Name">
+            <select name="Freight_Mode">
+                <option value="" disabled selected>Select Freight Mode</option>
+                <option value="Air Freight">Air Freight</option>
+                <option value="Sea Freight">Sea Freight</option>
+            </select>
+        </div>
 
-<input type="text" placeholder="Contact Person">
+        <textarea name="Commodity_Details" placeholder="Commodity Details"></textarea>
 
-<input type="email" placeholder="Email">
+        <!-- Metrics Row 1 -->
+        <div class="form-row">
+            <input type="text" name="Gross_Weight_KGS" placeholder="Gross Weight (KGS)">
+            <input type="text" name="Chargeable_Weight" placeholder="Chargeable Weight">
+        </div>
 
-<input type="text" placeholder="Phone">
+        <!-- Metrics Row 2 -->
+        <div class="form-row">
+            <input type="text" name="Volume_CBM" placeholder="Volume (CBM)">
+            <input type="text" name="HS_Code" placeholder="HS Code">
+        </div>
 
-<input type="text" placeholder="Origin">
+        <!-- Terms Selection -->
+        <select name="Incoterms">
+            <option value="" disabled selected>Select Incoterms</option>
+            <option value="EXW">EXW</option>
+            <option value="FOB">FOB</option>
+            <option value="CIF">CIF</option>
+            <option value="CFR">CFR</option>
+            <option value="DAP">DAP</option>
+            <option value="DDP">DDP</option>
+        </select>
 
-<input type="text" placeholder="Destination">
+        <!-- Dynamic Dimensions -->
+        <h4>Cargo Dimensions</h4>
+        <table id="dimensionTable">
+            <tr>
+                <th>L (CM)</th>
+                <th>W (CM)</th>
+                <th>H (CM)</th>
+                <th>Packages</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td><input type="number" name="Dim_Length[]" placeholder="Length"></td>
+                <td><input type="number" name="Dim_Width[]" placeholder="Width"></td>
+                <td><input type="number" name="Dim_Height[]" placeholder="Height"></td>
+                <td><input type="number" name="Dim_Qty[]" placeholder="Qty"></td>
+                <td><button type="button" onclick="removeRow(this)">Delete</button></td>
+            </tr>
+        </table>
 
-<select>
+        <button type="button" onclick="addRow()">+ Add Dimension</button>
 
-<option>Import</option>
+        <!-- Equipment Selection -->
+        <select name="Container_Type">
+            <option value="" selected disabled>Container Type</option>
+            <option value="LCL">LCL (Less than Container Load)</option>
+            <option value="FCL - 1 X 20'">FCL - 1 X 20'</option>
+            <option value="FCL - 1 X 40'">FCL - 1 X 40'</option>
+            <option value="Reefer - 1 X 20'">Reefer - 1 X 20'</option>
+            <option value="Reefer - 1 X 40'">Reefer - 1 X 40'</option>
+            <option value="Open Top">Open Top</option>
+            <option value="Break Bulk">Break Bulk</option>
+            <option value="Flat Rack">Flat Rack</option>
+            <option value="Project Cargo">Project Cargo</option>
+        </select>
 
-<option>Export</option>
+        <textarea name="Special_Instructions" placeholder="Special Instructions / Remarks"></textarea>
 
-</select>
+        <!-- Submit -->
+        <button type="submit">Submit Enquiry</button>
 
-<select>
-
-<option>Air Freight</option>
-
-<option>Sea Freight</option>
-
-<option>Road Freight</option>
-
-</select>
-
-<textarea placeholder="Commodity Details"></textarea>
-
-<input type="text" placeholder="Gross Weight (KGS)">
-
-<h4>Cargo Dimensions</h4>
-
-<table id="dimensionTable">
-
-<tr>
-
-<th>L (CM)</th>
-<th>W (CM)</th>
-<th>H (CM)</th>
-<th>Packages</th>
-<th>Action</th>
-
-</tr>
-
-<tr>
-
-<td>
-<input type="number" placeholder="Length">
-</td>
-
-<td>
-<input type="number" placeholder="Width">
-</td>
-
-<td>
-<input type="number" placeholder="Height">
-</td>
-
-<td>
-<input type="number" placeholder="Qty">
-</td>
-
-<td>
-
-<button type="button"
-onclick="removeRow(this)">
-
-Delete
-
-</button>
-
-</td>
-
-</tr>
-
-</table>
-
-<button
-type="button"
-onclick="addRow()">
-
-+ Add Dimension
-
-</button>
-
-<select>
-
-<option selected>Container Type</option>
-
-<option>LCL (Less than Container Load)</option>
-
-<option>FCL - 1 X 20'</option>
-
-<option>FCL - 1 X 40'</option>
-
-<option>Reefer - 1 X 20'</option>
-
-<option>Reefer - 1 X 40'</option>
-
-<option>Open Top</option>
-
-<option>Break Bulk</option>
-
-<option>Flat Rack</option>
-
-<option>Project Cargo</option>
-
-</select>
-
-<textarea placeholder="Special Instructions / Remarks"></textarea>
-
-<button>
-
-Submit Enquiry
-
-</button>
-
-</form>
+    </form>
 
 </div>
 

@@ -1,108 +1,175 @@
+/* Apply a global reset so padding doesn't break element widths */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body{
-
-font-family:Arial;
-
-background:#f5f7fb;
-
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #333;
+    padding: 20px;
 }
 
 .container{
-
-width:700px;
-
-margin:auto;
-
-margin-top:40px;
-
-padding:30px;
-
-background:white;
-
-border-radius:10px;
-
-box-shadow:0 0 20px rgba(0,0,0,.1);
-
+    width: 100%;
+    max-width: 750px; /* Makes it look great on desktop and scale down safely on mobile */
+    margin: 40px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
 }
 
+h1{
+    color: #003366;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+h3{
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+h4{
+    color: #003366;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-bottom: 2px solid #f5f7fb;
+    padding-bottom: 5px;
+}
+
+/* Form Elements */
 input,
 select,
 textarea{
-
-width:100%;
-
-padding:12px;
-
-margin-bottom:15px;
-
-border:1px solid #ddd;
-
-border-radius:5px;
-
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-color: #fff;
 }
 
+input:focus,
+select:focus,
+textarea:focus{
+    border-color: #003366;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Two-column layout helper for side-by-side inputs */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+.form-row > * {
+    flex: 1;
+}
+
+/* Buttons */
 button{
-
-background:#003366;
-
-color:white;
-
-padding:15px;
-
-border:none;
-
-border-radius:5px;
-
-width:100%;
-
-cursor:pointer;
-
+    background: #003366;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
 button:hover{
-
-background:#0055aa;
-
+    background: #0055aa;
 }
+
+/* Target only the primary form submit button */
+button[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    font-size: 16px;
+}
+
+/* Target the Add Dimension button specifically */
+button[onclick="addRow()"] {
+    background: #e6f0fa;
+    color: #003366;
+    border: 1px dashed #003366;
+    width: auto;
+    margin-bottom: 20px;
+}
+button[onclick="addRow()"]:hover {
+    background: #d0e4f7;
+}
+
+/* Tables */
 table{
-
-width:100%;
-
-border-collapse:collapse;
-
-margin-top:15px;
-
-margin-bottom:15px;
-
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 th{
-
-background:#003366;
-
-color:white;
-
-padding:12px;
-
+    background: #003366;
+    color: white;
+    padding: 10px;
+    font-size: 13px;
+    text-transform: uppercase;
 }
 
 td{
-
-padding:10px;
-
-border:1px solid #ddd;
-
+    padding: 8px;
+    border: 1px solid #ddd;
 }
 
 td input{
-
-width:100%;
-
-padding:10px;
-
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 0; /* Clear margin inside the table cells */
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
-button{
+/* Delete Button in Table Row */
+td button {
+    background: #cc0000;
+    padding: 8px 12px;
+    font-size: 12px;
+    width: 100%;
+}
+td button:hover {
+    background: #990000;
+}
 
-cursor:pointer;
+/* Grid Layout (For potential future option boxes) */
+.container-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
 
+.container-grid label{
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
 }
