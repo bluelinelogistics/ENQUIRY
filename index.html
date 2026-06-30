@@ -36,7 +36,7 @@ function removeRow(btn){
     <h1>BLUELINE LOGISTICS PVT LTD</h1>
     <h3>Freight Enquiry Form</h3>
 
-    <form action="https://script.google.com/macros/s/AKfycbxDovlIeZLZiQjtyCCHiMXk_uN9YINmTH6flO1zWkR3gmVjpEpll2ewZlOxauZ5AuQ/exec" method="POST">
+    <form action="https://script.google.com/macros/s/AKfycbwHhPeEyyF-xdR0u2seHXWvEoScaKNLD_16iiSOJTv-cNpqCy6rOSw2-YXUlzbmJ5Rb/exec" method="POST">
         
         <div class="form-row">
             <input type="text" name="Contact_Name" placeholder="Your Name" required>
@@ -86,21 +86,21 @@ function removeRow(btn){
 
         <h4>Cargo Dimensions</h4>
         <table id="dimensionTable">
-            <tr>
-                <th>L (CM)</th>
-                <th>W (CM)</th>
-                <th>H (CM)</th>
-                <th>Packages</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <td><input type="number" name="Dim_Length[]" placeholder="Length"></td>
-                <td><input type="number" name="Dim_Width[]" placeholder="Width"></td>
-                <td><input type="number" name="Dim_Height[]" placeholder="Height"></td>
-                <td><input type="number" name="Dim_Qty[]" placeholder="Qty"></td>
-                <td><button type="button" onclick="removeRow(this)">Delete</button></td>
-            </tr>
-        </table>
+    <tr>
+        <th>L (CM)</th>
+        <th>W (CM)</th>
+        <th>H (CM)</th>
+        <th>Packages</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        <td><input type="number" name="Dim_Length" placeholder="Length"></td>
+        <td><input type="number" name="Dim_Width" placeholder="Width"></td>
+        <td><input type="number" name="Dim_Height" placeholder="Height"></td>
+        <td><input type="number" name="Dim_Qty" placeholder="Qty"></td>
+        <td><button type="button" onclick="removeRow(this)">Delete</button></td>
+    </tr>
+</table>
 
         <button type="button" onclick="addRow()">+ Add Dimension</button>
 
